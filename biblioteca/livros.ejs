@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head id="start">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="">
+
+
+
+  <!-- javascript -->
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/5bf087543c.js" crossorigin="anonymous"></script>
+  <!-- popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap min js -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <title>Biblioteca Leia+</title>
+
+</head>
+
+<body>
+  <section class="container">
+    <div class="row">
+      <div class="col">
+        <div class="row mt-5">
+          <div class="col-6">
+            <h1>Lista de Produtos</h1>
+          </div>
+
+          <div class="col-6">
+            <a href="/cadastro" class="btn btn-primary">Cadastrar novo Livro</a>
+          </div>
+          <form action="/pesquisar" method="GET">
+            <input type="search" name="pesquisa">
+            <button type="submit">pesquisar</button>
+          </form>
+        </div>
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Autor</th>
+              <th>Categoria</th>
+              <th>Valor</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- produtos do DB collection// produto de objetos -->
+            <% livro.forEach(function(produto){ %>
+            <tr>
+              <td> <%= produto.titulo %> </td>
+              <td> <%= produto.autor %> </td>
+              <td> <%= produto.categoria %> </td>
+              <td> <%= produto.valor %> </td>
+              <td>
+                <a href="editar/<%= produto._id %>" class="btn btn-danger">Editar</a>
+                <a href="deletar/<%= produto._id %>" class="btn btn-warning">Deletar</a>
+              </td>
+            </tr>
+            <% }) %>
+
+            <!-- condicao mensagem -->
+            <% if(livro == 0){ %>
+              <div class="alert alert-warning" role="alert">
+                Não há produtos cadastrados
+              </div>
+            <% } %>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

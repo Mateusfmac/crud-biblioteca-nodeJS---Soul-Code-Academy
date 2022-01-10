@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head id="start">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="">
+
+
+
+  <!-- javascript -->
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/5bf087543c.js" crossorigin="anonymous"></script>
+  <!-- popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap min js -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <title>Biblioteca Leia+</title>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="mt-5">Editar Livros</h1>
+        <form action="/editar" method="POST">
+
+          <div class="form-group">
+            <label for="title">Título</label>
+            <input class="form-control" type="text" id="title" name="titulo" placeholder="Nome Completo do Aluno" required value="<%=item.titulo %>">
+          </div>
+
+          <div class="form-group">
+            <label for="autor">Autor</label>
+            <input class="form-control" type="text" id="autor" name="autor" required value="<%=item.autor %>">
+          </div>
+
+          <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <select name="categoria" id="categoria" class="form-control" required> Categoria
+              <option value="" selected disabled hidden>Escolha</option>
+              <option value="administração">Administração</option>
+              <option value="autoajuda">Autoajuda</option>
+              <option value="aumanaseSociais">Humanas e Sociais</option>
+              <option value="didáticos">Didáticos</option>
+              <option value="direito">Direito</option>
+              <option value="HQSeMangas">HQS e Mangás</option>
+              <option value="literaturaEstrangeira">Literatura Estrangeira</option>
+              <option value="literaturaNascional">Literatura Nascional</option>
+              <option value="tecnologia">Tecnologia</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="valor">Preço</label>
+            <input class="form-control" type="number" id="valor" name="valor" step="0.01" required value="<%=item.valor %>">
+          </div>
+          <input type="hidden" name="id" value="<%=item._id %>">
+
+          <button class="btn btn-primary" type="submit">Salvar</button>
+        
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <script src="meu script"></script> -->
+</body>
+
+</html>
